@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Icon = ({ children, className, ...props }: { children: React.ReactNode; className?: string, [key: string]: any }) => (
+// FIX: Changed props type to be more specific using React.SVGProps, which resolves incorrect type errors about missing 'children'.
+const Icon = ({ children, className, ...props }: React.SVGProps<SVGSVGElement> & { children: React.ReactNode }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={`w-6 h-6 ${className}`}
@@ -14,7 +15,6 @@ const Icon = ({ children, className, ...props }: { children: React.ReactNode; cl
   </svg>
 );
 
-// FIX: Update all Icon components to accept a className prop for consistency and to fix type errors.
 export const MenuIcon = ({ className = '' }) => <Icon className={className}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></Icon>;
 export const XIcon = ({ className = '' }) => <Icon className={className}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></Icon>;
 export const UserIcon = ({ className = '' }) => <Icon className={className}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></Icon>;
@@ -40,7 +40,8 @@ export const WhatsAppIcon = ({ className = '' }) => <Icon className={className}>
 export const TruckIcon = ({ className = '' }) => <Icon className={className}><path strokeLinecap="round" strokeLinejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h8l2-2zM5 16h2m2 0h2m-8-5l2 2v3m4-3l2-2v3" /></Icon>;
 export const BoxIcon = ({ className = '' }) => <Icon className={className}><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></Icon>;
 
-export const StarIcon = ({ className = '' }) => <svg viewBox="0 0 24 24" className={className} fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>;
+// FIX: Changed to accept all SVG props to allow 'key' prop to be passed without type errors in lists.
+export const StarIcon = (props: React.SVGProps<SVGSVGElement>) => <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>;
 export const CalendarIcon = ({ className = '' }) => <Icon className={className}><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></Icon>;
 export const SparklesIcon = ({ className = '' }) => <Icon className={className}><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.293 2.293a1 1 0 010 1.414L11 15l-4 6 6-4 6.293-6.293a1 1 0 011.414 0L21 11" /></Icon>;
 

@@ -59,7 +59,7 @@ const Account = () => {
                 <h2 className="text-lg font-semibold text-gray-400 mb-2">{translations.accountPage.currentBalance}</h2>
                 <p className="text-4xl font-bold text-highlight">1,250,000 ل.س</p>
                  <div className="mt-6 flex space-x-4 rtl:space-x-reverse">
-                    <button className="flex-1 bg-highlight text-primary font-bold py-3 px-4 rounded-lg hover:bg-yellow-300 transition-colors duration-300">{translations.accountPage.addFunds}</button>
+                    <button className="flex-1 bg-gray-600 text-accent font-bold py-3 px-4 rounded-lg hover:bg-gray-500 transition-colors duration-300">{translations.accountPage.addFunds}</button>
                     <button className="flex-1 bg-gray-600 text-accent font-bold py-3 px-4 rounded-lg hover:bg-gray-500 transition-colors duration-300">{translations.accountPage.withdraw}</button>
                 </div>
             </div>
